@@ -23,6 +23,6 @@
 - Django 3, Django ORM, Django REST Framework,
 - drf_yasg, djoser, corsheaders,
 - Vue.js, Vite, axios,
-- HTML, TypeScript.
+- HTML, TypeScript, CSS.
 
 **[Документирование](https://evasamoilenko.github.io/django-hotel-management/)** производилось с помощью языка разметки MarkDown и генератора сайтов MkDocs, которые задеплоены на отдельной ветке и всегда доступны. В документации присутствуют описания API, UML виграммы пакетов и Use Case, расширенные комментарии эндпоинтов и скриншоты работы сервисов.
