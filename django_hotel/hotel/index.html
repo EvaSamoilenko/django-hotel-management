@@ -1,0 +1,1105 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../drf_hotel/hotel/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Django - Django Hotel Administration Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Django Hotel Administration Docs" class="md-header__button md-logo" aria-label="Django Hotel Administration Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Django Hotel Administration Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Django
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Django Hotel Administration Docs" class="md-nav__button md-logo" aria-label="Django Hotel Administration Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Django Hotel Administration Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Django
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функциональные требования по ТЗ:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результаты работы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Описание
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функционал
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Функционал">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация и авторизация пользователя
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Регистрация и авторизация пользователя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аутентификация и авторизация
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Просмотр списка отелей
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Доступные комнаты отеля
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бронирование номера
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отзывы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Личные бронирования пользователя
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Личные бронирования пользователя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Написать отзыв
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Изменить параметры бронирования
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Статистика за прошедший месяц
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../drf_hotel/hotel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django REST Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vue_hotel/hotel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vue.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функциональные требования по ТЗ:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результаты работы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Описание
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функционал
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Функционал">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация и авторизация пользователя
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Регистрация и авторизация пользователя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аутентификация и авторизация
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Просмотр списка отелей
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Доступные комнаты отеля
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бронирование номера
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Отзывы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Личные бронирования пользователя
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Личные бронирования пользователя">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Написать отзыв
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Изменить параметры бронирования
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Статистика за прошедший месяц
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="django">Список Отелей (фреймворк Django)</h1>
+<h2 id="_1">Функциональные требования по ТЗ:</h2>
+<ul>
+<li>Необходимо учитывать название отеля, владельца отеля, адрес, описание, типы
+  номеров, стоимость, вместимость, удобства.</li>
+<li><strong>Регистрация</strong> новых пользователей.</li>
+<li><strong>Просмотр и резервирование номеров</strong>. Пользователь должен иметь
+  возможность редактирования и удаления своих резервирований.</li>
+<li><strong>Написание отзывов к номерам</strong>. При добавлении комментариев, должны
+  сохраняться период проживания, текст комментария, рейтинг (1-10),
+  информация о комментаторе.</li>
+<li><strong>Администратор</strong> должен иметь возможность заселить пользователя в отель и
+  выселить из отеля средствами Django-admin.</li>
+<li>В <strong>клиентской части</strong> должна формироваться таблица, отображающая
+  постояльцев отеля за последний месяц.</li>
+</ul>
+<p>Основная логика сериализации, отображения ответов и навигации между страницами происходит в <strong>.html 
+файлах</strong> проекта, которые хранятся в директории hotel_web_project/templates.</p>
+<p>Тем самым в результате разработки были изучены не только способы программирования с помощью 
+фреймворка <strong>Django 3</strong> (структура проекта, функциональные и классовые представления, редиректы и 
+построения моделей), но и варианты работы с <strong>HTML</strong>, <strong>bootstrap</strong>, их внутренними обработчиками и 
+сериализаторами.</p>
+<p>Большое количество методов зависят от состояния авторизации пользователя: если авторизация не 
+производилась, то методы будут недоступны.</p>
+<h2 id="_2">Результаты работы</h2>
+<h2 id="_3">Описание</h2>
+<p>Приложение Hotel App умеет регистрировать нового пользователя и позволяет ему зайти в свой
+аккаунт. Во время своего сеанса пользователь может рассматривать список доступных отелей,
+комнаты в этих отелях и отзывы на них. Также юзер способен просматривать свои бронирования,
+создавать новые, изменять и удалять их. Пользователь может свободно выражать свои мысли о
+проживании в разделе отзывов.</p>
+<h2 id="_4">Модели</h2>
+<ul>
+<li><strong>Hotel</strong>: название, владелец, адрес и описание:</li>
+</ul>
+<pre><code>CREATE TABLE &quot;hotel&quot; (
+    &quot;id&quot; serial NOT NULL PRIMARY KEY,
+    &quot;name&quot; varchar(50) NOT NULL,               -- название отеля
+    &quot;owner&quot; varchar(30) NOT NULL,              -- владелец отеля
+    &quot;address&quot; varchar(100) NOT NULL,           -- адрес отеля
+    &quot;description&quot; varchar(100) NOT NULL        -- описание отеля
+);
+</code></pre>
+<ul>
+<li><strong>Room</strong>: fk отель, тип комнаты, цена, вместительность, дополнительные атрибуты:</li>
+</ul>
+<pre><code>CREATE TABLE &quot;room&quot; (
+    &quot;id&quot; serial NOT NULL PRIMARY KEY,
+    &quot;hotel_id&quot; integer NOT NULL,               -- FK на отель
+    &quot;room_type&quot; varchar(17) NOT NULL           -- тип комнаты (Standard Single, Double и т.д.)
+        CHECK (
+            &quot;room_type&quot; IN (
+                'Standard Single',
+                'Standard Double',
+                'Standard Twin',
+                'Quadruple Room',
+                'Presidential Suit'
+            )
+        ),
+    &quot;price&quot; integer NOT NULL                   -- цена за ночь (только положительные числа)
+        CHECK (&quot;price&quot; &gt;= 0),
+    &quot;capacity&quot; integer NOT NULL                -- вместительность (1-5 человек)
+        CHECK (&quot;capacity&quot; BETWEEN 1 AND 5),
+    &quot;description&quot; varchar(100) NULL,           -- дополнительное описание (может быть пустым)
+
+    FOREIGN KEY (&quot;hotel_id&quot;) REFERENCES &quot;hotel&quot; (&quot;id&quot;) ON DELETE CASCADE
+);
+</code></pre>
+<ul>
+<li><strong>Booking</strong>: fk комната, fk клиента, даты бронирования:</li>
+</ul>
+<pre><code>CREATE TABLE &quot;booking&quot; (
+    &quot;id&quot; serial NOT NULL PRIMARY KEY,
+    &quot;user_id&quot; integer NOT NULL,                -- FK на пользователя (клиента)
+    &quot;room_id&quot; integer NOT NULL,                -- FK на комнату
+    &quot;start_date&quot; date NOT NULL,                -- дата заезда
+    &quot;end_date&quot; date NOT NULL,                  -- дата выезда
+
+    FOREIGN KEY (&quot;user_id&quot;) REFERENCES &quot;auth_user&quot; (&quot;id&quot;) ON DELETE CASCADE,
+    FOREIGN KEY (&quot;room_id&quot;) REFERENCES &quot;room&quot; (&quot;id&quot;) ON DELETE CASCADE,
+
+    CHECK (&quot;end_date&quot; &gt; &quot;start_date&quot;)          -- проверка, что дата выезда позже заезда
+);
+</code></pre>
+<ul>
+<li><strong>Review</strong>: fk бронирование, рейтинг, отзыв:</li>
+</ul>
+<pre><code>CREATE TABLE &quot;review&quot; (
+    &quot;id&quot; serial NOT NULL PRIMARY KEY,
+    &quot;booking_id&quot; integer NOT NULL,             -- FK на бронирование
+    &quot;rating&quot; smallint NOT NULL                 -- рейтинг (например, 1-5 звёзд)
+        CHECK (&quot;rating&quot; BETWEEN 1 AND 5),
+    &quot;comment&quot; text NULL,                       -- текстовый отзыв (может быть пустым)
+
+    FOREIGN KEY (&quot;booking_id&quot;) REFERENCES &quot;booking&quot; (&quot;id&quot;) ON DELETE CASCADE
+);
+</code></pre>
+<p>Пример структуры модели в перевод на язык django.db.models:</p>
+<pre><code>class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+</code></pre>
+<h2 id="_5">Функционал</h2>
+<h3 id="_6">Регистрация и авторизация пользователя</h3>
+<h4 id="_7">Регистрация</h4>
+<p><code>POST /signup/</code></p>
+<p>Создание нового аккаунта пользователя.</p>
+<p>Параметры запроса (тело JSON):</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Да</td>
+<td>Логин пользователя</td>
+</tr>
+<tr>
+<td>password1</td>
+<td>string</td>
+<td>Да</td>
+<td>Пароль</td>
+</tr>
+<tr>
+<td>password2</td>
+<td>string</td>
+<td>Да</td>
+<td>Подтверждение пароля</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_8">Аутентификация и авторизация</h4>
+<p><code>POST /login/</code></p>
+<p>Проверка наличия профиля пользователя в базе данных и вход на главную страницу сайта.</p>
+<p>Параметры запроса:</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Да</td>
+<td>Логин пользователя</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Да</td>
+<td>Пароль</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="login.png" src="../imgs/login.png" /></p>
+<h3 id="_9">Просмотр списка отелей</h3>
+<p><code>GET /hotels/</code></p>
+<p>Получение главной страницы сайта со списком доступных для бронирования отелей.</p>
+<p>Особенность: классовое представление ListView</p>
+<pre><code>class HotelListView(ListView):
+    model = Hotel
+    context_object_name = 'hotels'
+    template_name = 'hotel/hotels_list.html'
+</code></pre>
+<h3 id="_10">Доступные комнаты отеля</h3>
+<p><code>GET /hotels/{hotel_id}/</code></p>
+<p>Получение списка комнат заданного отеля с соответствующими характеристиками комнаты и
+возможностями (кнопками) последующего взаимодействия.</p>
+<pre><code>def rooms_list(request, hotel_id):
+    rooms = Room.objects.filter(hotel_id=hotel_id)
+    return render(request, &quot;hotel/hotel_rooms.html&quot;, {&quot;rooms&quot;: rooms})
+</code></pre>
+<p><img alt="hotel_rooms.png" src="../imgs/hotel_rooms.png" /></p>
+<h3 id="_11">Бронирование номера</h3>
+<p><code>POST /hotels/{hotel_id}/{room_id}/</code></p>
+<p>Бронирование выбранного номера в заданном отеле.</p>
+<p>Параметры запроса:</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hotel_id</td>
+<td>int</td>
+<td>Да</td>
+<td>id гостиницы</td>
+</tr>
+<tr>
+<td>room_id</td>
+<td>int</td>
+<td>Да</td>
+<td>id выбранного номера</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>datetime</td>
+<td>Да</td>
+<td>дата заезда в номер</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>datetime</td>
+<td>Да</td>
+<td>дата выезда из номера</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">Отзывы</h3>
+<p><code>GET /hotels/{hotel_id}/{room_id}/reviews/</code></p>
+<p>Просмотр отзывов к запрашиваемой комнате.</p>
+<p>Параметры запроса:</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hotel_id</td>
+<td>int</td>
+<td>Да</td>
+<td>id гостиницы</td>
+</tr>
+<tr>
+<td>room_id</td>
+<td>int</td>
+<td>Да</td>
+<td>id выбранного номера</td>
+</tr>
+</tbody>
+</table>
+<pre><code>@login_required(login_url='/login/')
+def book_room(request, hotel_id, room_id):
+    room = Room.objects.get(id=room_id)
+    user = request.user
+    context = {}
+    form = BookingCreateForm(request.POST or None)
+    if form.is_valid():
+        booking = form.save(commit=False)
+        booking.user = user
+        booking.room = room
+        form.save()
+        return redirect(&quot;bookings&quot;)
+    context['form'] = form
+    return render(request, &quot;booking/book_room.html&quot;, context)
+</code></pre>
+<p><img alt="room_reviews.png" src="../imgs/room_reviews.png" /></p>
+<h3 id="_13">Личные бронирования пользователя</h3>
+<p><code>GET /bookings/</code></p>
+<p>Получение списка бронирований номеров конкретного пользователя.</p>
+<p>Особенность: функциональное представление; фильтрация в базе данных происходит на основе user,
+под именем которого залогинен пользователь на сайте.</p>
+<pre><code>def user_bookings(request):
+    bookings = Booking.objects.filter(user_id=request.user)
+    return render(request, &quot;booking/user_bookings.html&quot;, {&quot;bookings&quot;: bookings})
+</code></pre>
+<p><img alt="bookings.png" src="../imgs/bookings.png" /></p>
+<h4 id="_14">Написать отзыв</h4>
+<p><code>POST /bookings/{booking_id}/write_review</code></p>
+<p>Отправить в базу данных отзыв на прошедшее бронирование пользователя.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>booking_id</td>
+<td>int</td>
+<td>Да</td>
+<td>номер бронирования</td>
+</tr>
+<tr>
+<td>review</td>
+<td>string</td>
+<td>Да</td>
+<td>письменный отзыв</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>int</td>
+<td>Да</td>
+<td>оценка (1-10)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_15">Изменить параметры бронирования</h4>
+<p><code>PATCH /bookings/{pk}/edit/</code></p>
+<p>Внос изменений в бронирование, которое ещё не наступило, то есть доступно для обновления.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>booking_id</td>
+<td>int</td>
+<td>Да</td>
+<td>номер бронирования</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>datetime</td>
+<td>Нет</td>
+<td>дата заезда в номер</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>datetime</td>
+<td>Нет</td>
+<td>дата выезда из номера</td>
+</tr>
+</tbody>
+</table>
+<pre><code>class BookingUpdateView(UpdateView):
+    model = Booking
+    fields = ['start_date', 'end_date']
+    success_url = '/bookings/'
+    template_name = 'booking/booking_update.html'
+</code></pre>
+<h3 id="_16">Статистика за прошедший месяц</h3>
+<p><code>GET hotels/{hotel_id}/monthly/</code></p>
+<p>Получение статистических данных отеля за прошедший месяц. </p>
+<p>Особенность: страница доступна только тем пользователям, которые обладают правами администратора.
+При попытке данного запроса неавторизарованным пользователем будет возвращено сообщение "You 
+have no right to be here! (Be a staff member to see this page)".</p>
+<pre><code>def monthly_clients(request, hotel_id):
+    last_month = datetime.now() - timedelta(days=30)
+    bookings = Booking.objects.filter(start_date__gt=last_month).filter(room__hotel_id=hotel_id)
+    return render(request, &quot;hotel/monthly_clients.html&quot;, {&quot;bookings_month&quot;: bookings})
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

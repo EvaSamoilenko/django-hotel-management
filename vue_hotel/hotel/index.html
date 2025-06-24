@@ -1,0 +1,887 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../drf_hotel/hotel/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Vue.js - Django Hotel Administration Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vuejs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Django Hotel Administration Docs" class="md-header__button md-logo" aria-label="Django Hotel Administration Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Django Hotel Administration Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vue.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Django Hotel Administration Docs" class="md-nav__button md-logo" aria-label="Django Hotel Administration Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Django Hotel Administration Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../django_hotel/hotel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../drf_hotel/hotel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django REST Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Vue.js
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vue.js
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vuejs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работа Vue.js
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейсы авторизации и регистрации
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Интерфейсы авторизации и регистрации">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login page
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейсы моделей (списки, страницы редактирования и добавления новых объектов)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Интерфейсы моделей (списки, страницы редактирования и добавления новых объектов)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rooms-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rooms Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clients Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#employees-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Employees Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookings-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bookings Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanings-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanings Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarter-report-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quarter Report Page
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vuejs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работа Vue.js
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейсы авторизации и регистрации
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Интерфейсы авторизации и регистрации">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login page
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейсы моделей (списки, страницы редактирования и добавления новых объектов)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Интерфейсы моделей (списки, страницы редактирования и добавления новых объектов)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rooms-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rooms Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clients Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#employees-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Employees Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookings-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bookings Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanings-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanings Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarter-report-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quarter Report Page
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vuejs">Администрирование отеля (Vue.js)</h1>
+<p>Продолжение работы над сервисом управления гостиницей с акцентом на расширение с помощью <strong>Vue.js</strong> 
+- JavaScript-фреймворка, предназначенного для создания пользовательских интерфейсов и 
+  одностраничных приложений.</p>
+<p>На рисунке ниже представлена неполная <strong>UML Use Case диаграмма</strong> сервиса. Неполная оа по той 
+причине, что только сущность Клиента была раскрыта со связями include, но в моей интуитивно понятной 
+работе очевидно, что в других сущностях с такими методами присутствуют такие же включения.</p>
+<p><img alt="" src="../imgs/use%20case.png" /></p>
+<hr />
+<h2 id="vuejs_1"><strong>Работа Vue.js</strong></h2>
+<h2 id="_1">Интерфейсы авторизации и регистрации</h2>
+<p>На протяжении работы запросы выполнялись с помощью <strong>axios</strong>:</p>
+<pre><code>import axios from &quot;axios&quot;;
+
+const instance = axios.create({
+    baseURL: 'http://127.0.0.1:8000/',
+    timeout: 1000,
+});
+
+export default instance
+</code></pre>
+<p><strong>Axios</strong> — клиентская библиотека HTTP, которая позволяет отправлять запросы (реквесты) к заданной 
+конечной точке. В моём случае это был сервис, логику которого прописывалась в предыдущей работе.</p>
+<p>Первое вхождение на сайт - обработка состояния авторизации пользователя. Доступ к функционалу 
+сайта открывается только после регистрации и авторизации:</p>
+<p><img alt="" src="../imgs/img_3.png" /></p>
+<h3 id="register-page">Register page</h3>
+<p><code>POST /register</code> - это форма с полями для имени пользователя, электронной почты и пароля.
+Активная ссылка под кнопкой переносит пользователя на Login page.</p>
+<p><img alt="" src="../imgs/img_5.png" /></p>
+<h3 id="login-page">Login page</h3>
+<p><code>POST /login</code> - имеет поля для имени пользователя и его пароля. Ссылка под кнопкой логин
+переадресовывает пользователя на Register page. При успешном логине пользователю присуждается
+токен, который хранится в базе данных приложения.</p>
+<p><img alt="" src="../imgs/img_4.png" /></p>
+<p>Ту же самую переадресацию делает страница при некорректно введённых данных,
+которые отсутствуют в системе.</p>
+<p><img alt="" src="../imgs/img_6.png" /></p>
+<h2 id="_2">Интерфейсы моделей (списки, страницы редактирования и добавления новых объектов)</h2>
+<h3 id="rooms-page">Rooms Page</h3>
+<p><code>GET /rooms</code></p>
+<p>Таким образом встречает сайт успешно залогиненного пользователя. Страница со всеми комнатами
+отеля состоит из двух столбцов из карточек, в каждой карточке представлена информация об объекте,
+есть кнопки редактирования (redirect <code>PATCH /rooms/:id</code>) и удаления.</p>
+<pre><code>function getRooms() {
+  instance.get('/hotel/rooms/').then(
+    response =&gt; {
+      if (response.status === 200) {
+        rooms.value = response.data
+      }
+    }
+  ).catch(error =&gt; console.log(error))
+}
+</code></pre>
+<p><img alt="" src="../imgs/img_7.png" /></p>
+<p>При попытке удаления высвечивает окно для подтверждения действия (аналогично оно высвечивается
+при попытке удаления всех других сущностей):</p>
+<pre><code>function deleteRoom(id) {
+  if (confirm(&quot;Are you sure you want to delete this room?&quot;)) {
+    instance.delete(`/hotel/rooms/${id}/`).then(response =&gt; {
+        if (response.status === 204) {
+          getRooms()
+        }
+      }
+    ).catch(error =&gt; console.log(error))
+  } else {
+    console.log(&quot;Room deletion cancelled.&quot;)
+  }
+}
+</code></pre>
+<p><img alt="" src="../imgs/img_8.png" /></p>
+<h3 id="clients-page">Clients Page</h3>
+<p><code>GET /clients</code></p>
+<p>Тот же карточный вид с соответствующими кнопка в каждой. Однако под заголовок добавились две
+дополнительные опции: добавление и сортировка.</p>
+<p><img alt="" src="../imgs/img_9.png" /></p>
+<p>Форма для добавления <code>POST /clients/add</code> имеет поля для создания нового клиента.</p>
+<p><img alt="" src="../imgs/img_10.png" /></p>
+<p>Страница сортировки <code>GET /clients/sort</code> представляет собой <strong>v-data-table</strong> с встроенным поиском по таблице, 
+сортировке
+по каждому столбцу.</p>
+<p><img alt="" src="../imgs/img_11.png" /></p>
+<h3 id="employees-page">Employees Page</h3>
+<p><code>GET /employees</code></p>
+<p>Работники отеля несут немного информации, поэтому уменьшенный масштаб и три столбца. Карточки,
+кнопки - по классике. Сортировать их не было смысла, поэтому есть только одна кнопка для
+добавления сущности <code>POST /employees/add</code>.</p>
+<p><img alt="" src="../imgs/img_12.png" /></p>
+<p>HTML-код добавления нового работника отеля:</p>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;form-container&quot;&gt;
+      &lt;h1&gt;Create Hotel Employee&lt;/h1&gt;
+      &lt;v-text-field label=&quot;First Name&quot; v-model=&quot;form.first_name&quot;&gt;&lt;/v-text-field&gt;
+      &lt;v-text-field label=&quot;Last Name&quot; v-model=&quot;form.last_name&quot;&gt;&lt;/v-text-field&gt;
+      &lt;v-text-field label=&quot;Father/Middle Name&quot; v-model=&quot;form.father_name&quot;&gt;&lt;/v-text-field&gt;
+      &lt;v-btn @click=&quot;createEmployee&quot; color=&quot;green&quot;&gt;Create&lt;/v-btn&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="bookings-page">Bookings Page</h3>
+<p><code>GET /bookings</code></p>
+<p>Страница с бронированиями уже интереснее за счёт наличия внешних ключей.</p>
+<p><img alt="" src="../imgs/img_13.png" /></p>
+<p>В формах для редактирования <code>PATCH /bookings/:id</code> и добавления <code>POST /bookings/add</code> присутствуют 
+<strong>select</strong>-поля, состоящие из доступных внешних ключей. Для бронирования это клиенты и комнаты.</p>
+<pre><code>function getPage() {
+  instance.get(`/hotel/bookings/${router.currentRoute.value.params.id}/`)
+    .then(response =&gt; {
+        if (response.status === 200) {
+          form.value = response.data
+        }
+      }
+    ).catch(error =&gt; console.log(error))
+
+  instance.get('hotel/rooms/').then(response =&gt; {
+      if (response.status === 200) {
+        room_select.value = response.data
+      }
+    }
+  ).catch(error =&gt; console.log(error))
+
+  instance.get('hotel/clients/').then(response =&gt; {
+      if (response.status === 200) {
+        client_select.value = response.data
+      }
+    }
+  ).catch(error =&gt; console.log(error))
+}
+</code></pre>
+<p><img alt="" src="../imgs/img_14.png" /></p>
+<p>По стандарту - страница сортировки <code>GET /bookings/sort</code> и поиска в виде <strong>v-data-table</strong>.</p>
+<pre><code>&lt;template&gt;
+  &lt;v-card
+    title=&quot;Sortable Bookings List&quot;
+    min-height=&quot;660&quot;
+    min-width=&quot;850&quot;
+    flat
+    flex=&quot;true&quot;
+    align=&quot;center&quot;
+  &gt;
+    &lt;template v-slot:text&gt;
+      &lt;v-text-field
+        v-model=&quot;search&quot;
+        label=&quot;Search&quot;
+        variant=&quot;outlined&quot;
+        hide-details
+        single-line
+      &gt;&lt;/v-text-field&gt;
+    &lt;/template&gt;
+
+    &lt;v-data-table
+      :headers=&quot;headers&quot;
+      :items=&quot;bookings&quot;
+      :search=&quot;search&quot;
+      width=&quot;1000&quot;
+    &gt;&lt;/v-data-table&gt;
+  &lt;/v-card&gt;
+&lt;/template&gt;
+</code></pre>
+<p><img alt="" src="../imgs/img_15.png" /></p>
+<h3 id="cleanings-page">Cleanings Page</h3>
+<p><code>GET /cleanings</code></p>
+<p>Каждая уборка, как и работник, имеет немного информации, но здесь они сразу представлены в
+форме таблицы. Теперь для каждой строки таблицы есть <strong>crud</strong>-кнопки в тандеме с поиском и сортировкой.</p>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;table-container&quot;&gt;
+    &lt;v-data-table
+      :headers=&quot;headers&quot;
+      :items=&quot;cleanings&quot;
+      :search=&quot;search&quot;
+      class=&quot;elevation-2 styled-table&quot;
+      items-per-page=&quot;6&quot;
+      height=&quot;450&quot;
+    &gt;
+      &lt;template v-slot:top&gt;
+        &lt;v-toolbar flat class=&quot;table-toolbar&quot;&gt;
+          &lt;v-toolbar-title class=&quot;v-toolbar_title&quot;&gt;Hotel Cleanings&lt;/v-toolbar-title&gt;
+          &lt;v-text-field
+            v-model=&quot;search&quot;
+            label=&quot;Search&quot;
+            variant=&quot;outlined&quot;
+            hide-details
+            single-line
+          &gt;&lt;/v-text-field&gt;
+          &lt;v-btn class=&quot;add-btn&quot; color=&quot;green&quot; @click=&quot;router.push('/cleanings/add')&quot;&gt;
+            Add Cleaning
+          &lt;/v-btn&gt;
+        &lt;/v-toolbar&gt;
+      &lt;/template&gt;
+
+      &lt;template v-slot:item.actions=&quot;{ item }&quot;&gt;
+        &lt;div class=&quot;d-flex align-center justify-center action-buttons&quot;&gt;
+          &lt;v-btn variant=&quot;text&quot; color=&quot;blue&quot; @click=&quot;router.push('/cleanings/' + item.id)&quot;&gt;
+            Edit
+          &lt;/v-btn&gt;
+          &lt;v-btn variant=&quot;text&quot; color=&quot;red&quot; @click=&quot;deleteCleaning(item.id)&quot;&gt;
+            Delete
+          &lt;/v-btn&gt;
+        &lt;/div&gt;
+      &lt;/template&gt;
+    &lt;/v-data-table&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><img alt="" src="../imgs/img_16.png" /></p>
+<p>Было не обойтись без получения внешнего ключа - работника в методе <code>POST /cleanings/add</code>.</p>
+<p><img alt="" src="../imgs/img_17.png" /></p>
+<p>Ещё из интересного - радиокнопки для выбора этажа уборки.</p>
+<pre><code>&lt;v-radio-group
+    v-model=&quot;form.floor_num&quot;
+    inline
+    label=&quot;Floor Number&quot;&gt;
+        &lt;v-radio label=&quot;0&quot; :value=&quot;0&quot;&gt;&lt;/v-radio&gt;
+        &lt;v-radio label=&quot;1&quot; :value=&quot;1&quot;&gt;&lt;/v-radio&gt;
+        &lt;v-radio label=&quot;2&quot; :value=&quot;2&quot;&gt;&lt;/v-radio&gt;
+        &lt;v-radio label=&quot;3&quot; :value=&quot;3&quot;&gt;&lt;/v-radio&gt;
+        &lt;v-radio label=&quot;4&quot; :value=&quot;4&quot;&gt;&lt;/v-radio&gt;
+&lt;/v-radio-group&gt;
+</code></pre>
+<p><img alt="" src="../imgs/img_18.png" /></p>
+<h3 id="quarter-report-page">Quarter Report Page</h3>
+<p><code>GET /report</code></p>
+<p>Завершающая страница нашего обзора - отчёты по работе отеля за определённую четверть года.
+Два <strong>select</strong>-поля - выбор четверти и интересующей части отчёта.</p>
+<pre><code>function fetchReport() {
+  if (selectedQuarter.value &amp;&amp; selectedPart.value) {
+    loading.value = true;
+    instance
+      .get(`/hotel/report/${selectedQuarter.value}/`)
+      .then((response) =&gt; {
+        reportData.value = response.data[selectedPart.value];
+      })
+      .catch((error) =&gt; {
+        console.error(&quot;Error fetching report:&quot;, error);
+        reportData.value = &quot;Failed to load report.&quot;;
+      })
+      .finally(() =&gt; {
+        loading.value = false;
+      });
+  }
+}
+
+watch([selectedQuarter, selectedPart], fetchReport);
+</code></pre>
+<p><img alt="" src="../imgs/img_19.png" />
+<img alt="" src="../imgs/img_20.png" /></p>
+<p>Пример вывода отчёта по условиям:
+<img alt="" src="../imgs/img_21.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

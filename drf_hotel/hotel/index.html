@@ -1,0 +1,883 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../django_hotel/hotel/">
+      
+      
+        <link rel="next" href="../../vue_hotel/hotel/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Django REST Framework - Django Hotel Administration Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django-rest-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Django Hotel Administration Docs" class="md-header__button md-logo" aria-label="Django Hotel Administration Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Django Hotel Administration Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Django REST Framework
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Django Hotel Administration Docs" class="md-nav__button md-logo" aria-label="Django Hotel Administration Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Django Hotel Administration Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../django_hotel/hotel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Django REST Framework
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django REST Framework
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Текст технического задания
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Текст технического задания">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дополнительные требования
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Описание моделей и endpoint-ов
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Описание моделей и endpoint-ов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#room" class="md-nav__link">
+    <span class="md-ellipsis">
+      Комната Room
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Постоялец Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#employee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работник Employee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бронирование Booking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Уборка Cleaning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Описание дополнительных endpoint-ов
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Описание дополнительных endpoint-ов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Выдача отчёта за запрашиваемый квартал
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djoser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление Djoser в проект
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors-cross-origin-resource-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление CORS (Cross-origin resource sharing) в проект
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vue_hotel/hotel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vue.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Текст технического задания
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Текст технического задания">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дополнительные требования
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Описание моделей и endpoint-ов
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Описание моделей и endpoint-ов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#room" class="md-nav__link">
+    <span class="md-ellipsis">
+      Комната Room
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Постоялец Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#employee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Работник Employee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бронирование Booking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Уборка Cleaning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Описание дополнительных endpoint-ов
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Описание дополнительных endpoint-ов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Выдача отчёта за запрашиваемый квартал
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djoser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление Djoser в проект
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors-cross-origin-resource-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление CORS (Cross-origin resource sharing) в проект
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="django-rest-framework">Администрирование отеля (Django Rest Framework)</h1>
+<h2 id="_1">Текст технического задания</h2>
+<p>Создать программную систему, предназначенную для <strong>администратора гостиницы</strong>.</p>
+<p>Такая система должна обеспечивать хранение сведений об имеющихся в гостинице
+<strong>номерах</strong>, о проживающих в гостинице <strong>клиентах</strong> и о <strong>служащих</strong>, убирающихся в номерах.
+Количество номеров в гостинице известно, и имеются номера трех типов: <em>одноместный,
+двухместный и трехместный</em>, отличающиеся стоимостью проживания в сутки. В каждом
+номере есть телефон.</p>
+<p>О каждом <strong>проживающем</strong> должна храниться следующая информация: номер
+паспорта, фамилия, имя, отчество, город, из которого он прибыл, дата поселения в
+гостинице, выделенный гостиничный номер.</p>
+<p>О <strong>служащих</strong> гостиницы должна быть известна информация следующего содержания:
+фамилия, имя, отчество, где (этаж) и когда (день недели) он убирает. Служащий
+гостиницы убирает все номера на одном этаже в определенные дни недели, при этом в
+разные дни он может убирать разные этажи.</p>
+<h3 id="_2">Дополнительные требования</h3>
+<p>Работа с системой предполагает получение следующей информации:</p>
+<ul>
+<li>о <strong>клиентах</strong>, проживавших в заданном номере, в заданный период времени;</li>
+<li>о <strong>количестве клиентов</strong>, прибывших из заданного города,</li>
+<li>о том, <strong>кто из служащих убирал номер</strong> указанного клиента в заданный день недели,</li>
+<li>сколько в гостинице свободных номеров;</li>
+<li><strong>список клиентов с указанием места жительства</strong>, которые проживали в те же дни,
+что и заданный клиент, в определенный период времени.</li>
+</ul>
+<p><strong>Администратор</strong> должен иметь возможность выполнить следующие операции:</p>
+<ul>
+<li>принять на работу или уволить служащего гостиницы;</li>
+<li>изменить расписание работы служащего;</li>
+<li>поселить или выселить клиента.</li>
+</ul>
+<p>Необходимо предусмотреть также возможность <strong>автоматической выдачи отчета о
+работе гостиницы за указанный квартал текущего года</strong>. Такой отчет должен содержать
+следующие сведения:</p>
+<ul>
+<li>число клиентов за указанный период в каждом номере;</li>
+<li>количество номеров на каждом этаже;</li>
+<li>общая сумма дохода за каждый номер;</li>
+<li>суммарный доход по всей гостинице.</li>
+</ul>
+<p>В процессе работы использовались следующие технологии:</p>
+<ul>
+<li><strong>Django 3, Django REST Framework</strong> для программирования логики работы API;</li>
+<li><strong>DjangoORM</strong> для реализации модели базы данных;</li>
+<li><strong>Djoser</strong> в целях регистрации / авторизации по токенам / вывода информации о текущем
+пользователе средствами Djoser.</li>
+<li><strong>CORS</strong> (Cross-origin resource sharing) во имя следующего этапа проекта.</li>
+</ul>
+<p>Теперь же в работе сервиса используются <strong>сериализаторы</strong>, которые позволяют преобразовывать сложные 
+данные, такие как наборы запросов и экземпляры моделей, в собственные типы данных Python, 
+и затем могут быть легко преобразованы в JSON.
+<img alt="" src="../imgs/uml%20package%20diagram.png" /></p>
+<hr />
+<h2 id="endpoint-">Описание моделей и endpoint-ов</h2>
+<h3 id="room">Комната Room</h3>
+<p>Особенность: использование Enum (в данном контексте - Choices) для выбора вида комнаты. fk этажа 
+для выполнения дополнительных функциональных требований.</p>
+<pre><code>CREATE TABLE `room` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `hotel_id` int NOT NULL,
+  `room_type` varchar(6) NOT NULL DEFAULT 'Single',
+  `price` int unsigned NOT NULL,
+  `phone_num` int NOT NULL,
+  `floor_num` smallint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `room_hotel_id` (`hotel_id`),
+  KEY `room_floor_num` (`floor_num`),
+  CONSTRAINT `room_hotel_id` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `room_floor_num` FOREIGN KEY (`floor_num`) REFERENCES `floor` (`floor_num`) ON DELETE CASCADE,
+  CONSTRAINT `room_type_check` CHECK (`room_type` in ('Single','Double','Triple'))
+);
+</code></pre>
+<p>Получить информацию о всех комнатах отеля с возможностью добавления новой сущности</p>
+<p><code>GET, POST /hotel/rooms/</code></p>
+<p><img alt="img_4.png" src="../imgs/img_4.png" /></p>
+<p>Получить информацию об одной комнате с возможностью изменения и удаления объекта </p>
+<p><code>GET, PATCH, DELETE /hotel/rooms/&lt;room_id&gt;/</code></p>
+<p><img alt="img_5.png" src="../imgs/img_5.png" /></p>
+<h3 id="client">Постоялец Client</h3>
+<pre><code>CREATE TABLE `client` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `passport_number` varchar(11) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `father_name` varchar(30) DEFAULT NULL,
+  `origin_city` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+</code></pre>
+<p>Получить информацию о всех клиентах отеля с возможностью добавления нового </p>
+<p><code>GET, POST /hotel/clients/</code></p>
+<p><img alt="img.png" src="../imgs/img.png" /></p>
+<p>Получить информацию об одном клиенте с возможностью изменения и удаления объекта </p>
+<p><code>GET, PATCH, DELETE /hotel/clients/&lt;client_id&gt;/</code></p>
+<p><img alt="img_1.png" src="../imgs/img_1.png" /></p>
+<h3 id="employee">Работник Employee</h3>
+<pre><code>CREATE TABLE `employee` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `hotel_id` int NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `father_name` varchar(30) DEFAULT NULL,
+  `is_employed` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `employee_hotel_id` (`hotel_id`),
+  CONSTRAINT `employee_hotel_id` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`) ON DELETE CASCADE
+);
+</code></pre>
+<p>Получить информацию о всех работниках отеля с возможностью добавления нового </p>
+<p><code>GET, POST /hotel/employees/</code></p>
+<p><img alt="img_2.png" src="../imgs/img_2.png" /></p>
+<p>Получить информацию об одном работнике с возможностью изменения и удаления объекта </p>
+<p><code>GET, PATCH, DELETE /hotel/employees/&lt;employee_id&gt;/</code></p>
+<p><img alt="img_3.png" src="../imgs/img_3.png" /></p>
+<h3 id="booking">Бронирование Booking</h3>
+<p>Внешние ключи Клиента и Комнаты обеспечивают связность и логичность базы данных.</p>
+<pre><code>CREATE TABLE `booking` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `client_id` int NOT NULL,
+  `room_id` int NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `is_verified` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `booking_client_id` (`client_id`),
+  KEY `booking_room_id` (`room_id`),
+  CONSTRAINT `booking_client_id` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `booking_room_id` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`) ON DELETE CASCADE
+);
+</code></pre>
+<p>Получить информацию о всех бронированиях в отеле с возможностью добавления нового </p>
+<p><code>GET, POST /hotel/bookings/</code></p>
+<p><img alt="img_6.png" src="../imgs/img_6.png" /></p>
+<p>Получить информацию об одном бронировании с возможностью изменения и удаления объекта </p>
+<p><code>GET, PATCH, DELETE /hotel/bookings/&lt;booking_id&gt;/</code></p>
+<p><img alt="img_7.png" src="../imgs/img_7.png" /></p>
+<h3 id="cleaning">Уборка Cleaning</h3>
+<p>Связана с работником, проводящим уборку, и комнатой, в которой совершилось преступление.</p>
+<pre><code>CREATE TABLE `cleaning` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `floor_num` smallint NOT NULL,
+  `employee_id` int NOT NULL,
+  `week_day` varchar(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cleaning_floor_num` (`floor_num`),
+  KEY `cleaning_employee_id` (`employee_id`),
+  CONSTRAINT `cleaning_employee_id` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `cleaning_floor_num` FOREIGN KEY (`floor_num`) REFERENCES `floor` (`floor_num`) ON DELETE CASCADE,
+  CONSTRAINT `week_day_check` CHECK (`week_day` in ('Mon','Tue','Wed','Thu','Fri','Sat','Sun'))
+);
+</code></pre>
+<p>Получить информацию о всех уборках комнат с возможностью добавления нового </p>
+<p><code>GET, POST /hotel/cleanings/</code></p>
+<p><img alt="img_8.png" src="../imgs/img_8.png" /></p>
+<p>Получить информацию об одной уборки комнат с возможностью изменения и удаления объекта </p>
+<p><code>GET, PATCH, DELETE /hotel/cleanings/&lt;cleaning_id&gt;/</code></p>
+<p><img alt="img_9.png" src="../imgs/img_9.png" /></p>
+<h2 id="endpoint-_1"><strong>Описание дополнительных endpoint-ов</strong></h2>
+<p>Получение информации:</p>
+<ul>
+<li>о клиентах, проживавших в заданном номере, в заданный период времени</li>
+</ul>
+<p><code>GET /hotel/clients-in-room/&lt;room_id&gt;/&lt;start_date&gt;/&lt;end_date&gt;/</code></p>
+<p><img alt="img_10.png" src="../imgs/img_10.png" /></p>
+<ul>
+<li>о количестве клиентов, прибывших из заданного города</li>
+</ul>
+<p><code>GET /hotel/clients-from-city/&lt;origin_city&gt;/</code></p>
+<p><img alt="img_11.png" src="../imgs/img_11.png" /></p>
+<ul>
+<li>о том, кто из служащих убирал номер указанного клиента в заданный день недели</li>
+</ul>
+<p><code>GET /hotel/cleaning-employees/&lt;client_id&gt;/&lt;week_day&gt;/</code></p>
+<p><img alt="img_12.png" src="../imgs/img_12.png" /></p>
+<ul>
+<li>о количестве в гостинице свободных номеров</li>
+</ul>
+<p><code>GET /hotel/free-rooms/&lt;start_date&gt;/&lt;end_date&gt;/</code></p>
+<p><img alt="img_13.png" src="../imgs/img_13.png" /></p>
+<ul>
+<li>о списке клиентов с указанием места жительства, которые проживали в те же дни,
+что и заданный клиент</li>
+</ul>
+<p><code>GET /hotel/clients-while-client/&lt;request_client_id&gt;/</code></p>
+<p><img alt="img_14.png" src="../imgs/img_14.png" /></p>
+<h3 id="_3">Выдача отчёта за запрашиваемый квартал</h3>
+<p>Отчёт содержит следующие данные:</p>
+<ul>
+<li>число клиентов за указанный период в каждом номере;</li>
+<li>количество номеров на каждом этаже;</li>
+<li>общая сумма дохода за каждый номер;</li>
+<li>суммарный доход по всей гостинице.</li>
+</ul>
+<p><code>GET /hotel/report/&lt;requested_quarter&gt;/</code></p>
+<p><img alt="img_15.png" src="../imgs/img_15.png" />
+<img alt="img_16.png" src="../imgs/img_16.png" /></p>
+<h2 id="djoser">Добавление Djoser в проект</h2>
+<p>Регистрация нового пользователя</p>
+<p><code>POST http://127.0.0.1:8000/auth/users/</code></p>
+<p><img alt="img_17.png" src="../imgs/img_17.png" /></p>
+<p>Авторизация пользователя -&gt; получение токена</p>
+<p><code>POST http://127.0.0.1:8000/auth/token/login/</code></p>
+<p><img alt="img_18.png" src="../imgs/img_18.png" /></p>
+<p>Запрос информации о пользователе с использованием личного токена</p>
+<p><code>GET http://127.0.0.1:8000/auth/users/me/</code></p>
+<p><img alt="img_19.png" src="../imgs/img_19.png" /></p>
+<hr />
+<h2 id="cors-cross-origin-resource-sharing"><strong>Добавление CORS (Cross-origin resource sharing) в проект</strong></h2>
+<p>Добавление CORS в настройки django-проекта:</p>
+<p><img alt="" src="../imgs/img.png" /></p>
+<p>Определение его middleware сверх всех остальных:
+<img alt="" src="../imgs/img_1.png" /></p>
+<p>Добавление позволительных доменов:
+<img alt="" src="../imgs/img_2.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
